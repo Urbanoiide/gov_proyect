@@ -20,6 +20,7 @@ class ApoyoSerializer(serializers.ModelSerializer):
         fields = [
             'apo_id',
             'apo_nombre',
+            'apo_clave',
             'apo_descripcion',
             'apo_capacidad',
             'apo_foto',
