@@ -329,7 +329,7 @@ class PalabraClave(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'prerrequisito'
+        db_table = 'palabra_clave'
     def __str__(self):
         return self.pal_descripcion
     
