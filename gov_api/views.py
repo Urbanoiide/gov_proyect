@@ -140,6 +140,36 @@ class ExpedienteViewSet(viewsets.ModelViewSet):
     queryset = models.Expediente.objects.all()
     serializer_class = ExpedienteSerializer
 
+    @action(detail=True, methods=["post"], url_path="validar-ine")
+    def validar_ine(self, request, pk=None):
+        exp = self.get_object()
+
+        # AJUSTA el nombre si no es exactamente urline:
+        ine_url = getattr(exp, "urline", None) or getattr(exp, "url_ine", None) or getattr(exp, "ine_url", None)
+
+        if not ine_url:
+            return Response(
+                {
+                    "is_valid": False,
+                    "code": "NO_URL",
+                    "message": "El expediente no tiene URL de INE (urline) para validar.",
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        try:
+            payload = validate_ine_url(ine_url)
+            return Response(payload, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response(
+                {
+                    "is_valid": False,
+                    "code": "ERROR_INE",
+                    "message": f"Error al procesar la INE: {e}",
+                },
+                status=status.HTTP_200_OK,
+            )
+        
 class GeneroViewSet(viewsets.ModelViewSet):
     """ViewSet para ver el genero de la persona del expediente
     """
