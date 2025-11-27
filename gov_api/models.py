@@ -338,7 +338,7 @@ class Periodo(models.Model):
 
 class Prerrequisito(models.Model):
     pre_id = models.AutoField(primary_key=True, db_comment='Id')
-
+    pre_descripcion = models.TextField(db_comment='Descripcion')
     pre_fk_apoyo = models.ForeignKey(Apoyo, models.DO_NOTHING, db_column='pre_fk_apoyo', db_comment='Id apoyo')
 
     class Meta:
