@@ -10,7 +10,7 @@ from django.db import models
 
 class Apoyo(models.Model):
     apo_id = models.AutoField(primary_key=True)
-    apo_clave = models.CharField(max_length=50, unique=True, blank=True, null=True)
+    apo_clave = models.CharField(max_length=150, unique=True, blank=True, null=True)
     apo_nombre = models.CharField(max_length=50)
     apo_descripcion = models.TextField()
     apo_capacidad = models.IntegerField()
