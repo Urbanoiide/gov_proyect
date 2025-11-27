@@ -1,4 +1,6 @@
+from django.conf import settings
 from rest_framework import routers
+from django.conf.urls.static import static
 from django.urls import path, include
 from .views import (
     ApoyoViewSet,
@@ -40,6 +42,9 @@ router.register(r'periodos', PeriodoViewSet)
 router.register(r'prerrequisitos', PrerrequisitoViewSet)
 router.register(r'tipos-documento', TipoDocumentoViewSet)
 
+
 urlpatterns = [
     path('api/', include(router.urls)),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
