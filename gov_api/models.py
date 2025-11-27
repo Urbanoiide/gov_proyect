@@ -10,6 +10,7 @@ from django.db import models
 
 class Apoyo(models.Model):
     apo_id = models.AutoField(primary_key=True)
+    apo_clave = models.CharField(max_length=50, unique=True, blank=True, null=True)
     apo_nombre = models.CharField(max_length=50)
     apo_descripcion = models.TextField()
     apo_capacidad = models.IntegerField()
@@ -17,7 +18,7 @@ class Apoyo(models.Model):
     apo_fk_periodo = models.ForeignKey('Periodo', models.DO_NOTHING, db_column='apo_fk_periodo')
     apo_fk_documento = models.ForeignKey('Documento', models.DO_NOTHING, db_column='apo_fk_documento')
     apo_foto = models.ImageField(
-        upload_to='apoyos/',  # carpeta dentro de MEDIA_ROOT
+        upload_to='apoyos/',  # carpeta dentro de MEDIA_ROOTks
         null=True, 
         blank=True
     )
@@ -258,6 +259,7 @@ class Expediente(models.Model):
     exp_fecha_creacion = models.DateTimeField(auto_now_add=True, db_comment='Fecha de creacion')
     exp_ine_url = models.TextField(blank=True, null=True)
 
+
     class Meta:
         managed = False
         db_table = 'expediente'
@@ -336,6 +338,7 @@ class Periodo(models.Model):
 
 class Prerrequisito(models.Model):
     pre_id = models.AutoField(primary_key=True, db_comment='Id')
+
     pre_fk_apoyo = models.ForeignKey(Apoyo, models.DO_NOTHING, db_column='pre_fk_apoyo', db_comment='Id apoyo')
 
     class Meta:
