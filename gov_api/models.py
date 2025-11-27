@@ -256,7 +256,6 @@ class Expediente(models.Model):
     exp_fk_apoyo = models.ForeignKey(Apoyo, models.DO_NOTHING, db_column='exp_fk_apoyo', db_comment='Id curso')
     exp_fk_estado = models.ForeignKey(Estado, models.DO_NOTHING, db_column='exp_fk_estado', db_comment='Id estado')
     exp_porcentaje = models.DecimalField(max_digits=3, decimal_places=2, blank=True, null=True, db_comment='Porcentaje')
-    exp_fecha_creacion = models.DateTimeField(auto_now_add=True, db_comment='Fecha de creacion')
     exp_ine_url = models.TextField(blank=True, null=True)
     exp_cv_url = models.TextField(blank=True, null=True)
 
