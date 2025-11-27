@@ -13,6 +13,7 @@ class Apoyo(models.Model):
     apo_nombre = models.CharField(max_length=50)
     apo_descripcion = models.TextField()
     apo_capacidad = models.IntegerField()
+    apo_foto = models.TextField(blank=True, null=True)
     apo_fk_categoria = models.ForeignKey('CategoriaApoyo', models.DO_NOTHING, db_column='apo_fk_categoria', blank=True, null=True)
     apo_fk_periodo = models.ForeignKey('Periodo', models.DO_NOTHING, db_column='apo_fk_periodo')
     apo_fk_documento = models.ForeignKey('Documento', models.DO_NOTHING, db_column='apo_fk_documento')
