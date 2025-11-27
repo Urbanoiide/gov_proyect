@@ -17,6 +17,7 @@ from .serializers import (
     HistorialEstadoExpedienteSerializer,
     InstitucionSerializer,
     NotificacionSerializer,
+    PalabraClaveSerializer,
     PeriodoSerializer,
     PrerrequisitoSerializer,
     TipoDocumentoSerializer,
@@ -106,6 +107,11 @@ class NotificacionViewSet(viewsets.ModelViewSet):
     queryset = models.Notificacion.objects.all()
     serializer_class = NotificacionSerializer
 
+class PalabraClaveViewSet(viewsets.ModelViewSet):
+    """ViewSet para ver las palabras clave de los apoyos
+    """
+    queryset = models.PalabraClave.objects.all()
+    serializer_class = PalabraClaveSerializer
 class PeriodoViewSet(viewsets.ModelViewSet):
     """ViewSet para el periodo de los apoyos
     """

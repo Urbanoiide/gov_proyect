@@ -322,7 +322,17 @@ class Notificacion(models.Model):
         managed = False
         db_table = 'notificacion'
 
+class PalabraClave(models.Model):
+    pal_id = models.AutoField(primary_key=True, db_comment='Id')
+    pal_fk_apoyo = models.ForeignKey(Apoyo, models.DO_NOTHING, db_column='pal_fk_apoyo', db_comment='Id apoyo')
+    pal_descripcion = models.TextField(db_comment='Descripcion')
 
+    class Meta:
+        managed = False
+        db_table = 'prerrequisito'
+    def __str__(self):
+        return self.pal_descripcion
+    
 class Periodo(models.Model):
     per_id = models.AutoField(primary_key=True, db_comment='Id')
     per_fecha_incio = models.DateTimeField(db_comment='Fecha inicio')

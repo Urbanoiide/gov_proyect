@@ -31,6 +31,11 @@ class ApoyoSerializer(serializers.ModelSerializer):
             'documento_nombre',
             ]          
 
+class PalabraClaveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PalabraClave
+        fields = '__all__'
+
 class CategoriaApoyoSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CategoriaApoyo
