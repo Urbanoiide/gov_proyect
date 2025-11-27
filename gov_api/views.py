@@ -1,4 +1,6 @@
 from rest_framework import viewsets
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.viewsets import ModelViewSet
 from . import models
 from .serializers import (
     ApoyoSerializer,
@@ -25,6 +27,7 @@ class ApoyoViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Apoyo.objects.all()
     serializer_class = ApoyoSerializer
+    parser_classes = (MultiPartParser, FormParser)
 
 class CategoriaApoyoViewSet(viewsets.ModelViewSet):
     """Viewset para las Keywords de los apoyos
