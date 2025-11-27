@@ -17,6 +17,7 @@ from .views import (
     HistorialEstadoExpedienteViewSet,
     InstitucionViewSet,
     NotificacionViewSet,
+    PalabraClaveViewSet,
     PeriodoViewSet,
     PrerrequisitoViewSet,
     TipoDocumentoViewSet,
@@ -41,6 +42,7 @@ router.register(r'notificaciones', NotificacionViewSet)
 router.register(r'periodos', PeriodoViewSet)
 router.register(r'prerrequisitos', PrerrequisitoViewSet)
 router.register(r'tipos-documento', TipoDocumentoViewSet)
+router.register(r'palabras-clave', PalabraClaveViewSet)
 
 
 urlpatterns = [
