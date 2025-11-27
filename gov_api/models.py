@@ -255,9 +255,9 @@ class Expediente(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'expediente'
+        db_table = 'expedientes'
     def __str__(self):
-        return self.exp_curp + ' - ' + self.exp_folio
+        return self.exp_curp + ' - ' + self.exp_folio + ' - ' + self.exp_nombre + ' ' + self.exp_paterno
 
 
 class Genero(models.Model):
