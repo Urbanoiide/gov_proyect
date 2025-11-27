@@ -250,7 +250,7 @@ class Expediente(models.Model):
     exp_fk_apoyo = models.ForeignKey(Apoyo, models.DO_NOTHING, db_column='exp_fk_apoyo', db_comment='Id curso')
     exp_fk_estado = models.ForeignKey(Estado, models.DO_NOTHING, db_column='exp_fk_estado', db_comment='Id estado')
     exp_porcentaje = models.DecimalField(max_digits=3, decimal_places=2, blank=True, null=True, db_comment='Porcentaje')
-    exp_fecha_creacion = models.DateTimeField(db_comment='Fecha de creacion')
+    exp_fecha_creacion = models.DateTimeField(auto_now_add=True, db_comment='Fecha de creacion')
     exp_inr_url = models.TextField(blank=True, null=True)
 
     class Meta:
@@ -276,7 +276,7 @@ class HistorialEstadoExpediente(models.Model):
     his_id = models.AutoField(primary_key=True)
     his_comentario = models.TextField(blank=True, null=True)
     his_usuario = models.CharField(max_length=100, blank=True, null=True)
-    his_fecha_cambio = models.DateTimeField()
+    his_fecha_cambio = models.DateTimeField(auto_now_add=True)
     his_fk_notificacion = models.ForeignKey('Notificacion', models.DO_NOTHING, db_column='his_fk_notificacion')
 
     class Meta:
