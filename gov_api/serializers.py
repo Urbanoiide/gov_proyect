@@ -22,6 +22,7 @@ class ApoyoSerializer(serializers.ModelSerializer):
             'apo_nombre',
             'apo_descripcion',
             'apo_capacidad',
+            'apo_foto',
             'apo_fk_categoria',
             'apo_fk_periodo',
             'apo_fk_documento',         
